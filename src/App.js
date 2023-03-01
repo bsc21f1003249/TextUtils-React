@@ -1,4 +1,5 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import About from "./components/About";
 import Alert from "./components/Alert";
@@ -34,17 +35,16 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-          <TextForm
-                heading="Enter the text to analyze below"
-                onShowAlert={showAlert}
-              />
-            
+    <BrowserRouter>
+      <Navbar title="TextUtils" mode ={mode} toggleMode={toggleMode} aboutText="About"/>
+      <Alert alert={alert}/>
+      <div className="container my-3">      
+        <Routes>
+          <Route path="/" element={<TextForm heading = "Try TextUtils - Word Counter, Character Counter, Remove extra spaces" mode ={mode} showAlert={showAlert}/>} />
+          <Route path="about" element={<About mode={mode}/>} />
+        </Routes>
       </div>
-      </>
+      </BrowserRouter>
   );
 }
 

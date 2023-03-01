@@ -26,13 +26,15 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-               Home
+            <NavLink to={"/"} className="nav-link" >
+              Home
+              </NavLink>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
             <NavLink to={"/about"} className="nav-link" >
               {props.aboutText}
               </NavLink>
-            </li> */}
+            </li>
           </ul>
           <div
             className={`form-check form-switch text-${
